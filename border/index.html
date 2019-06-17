@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .box {
+      background-color: #ccc;
+      width: 120px;
+      height: 20px;
+      border-top: 60px double;
+      border-bottom: 20px solid;
+    }
+    .add {
+      position: relative;
+      margin-top: 60px;
+      width: 100px;
+      height: 100px;
+      color: #ccc;
+      border: 1px solid;
+    }
+    .add::before {
+      border-top: 10px solid;
+      position: absolute;
+      top: 45px;
+      left: 20px;
+      width: 60px;
+      content: '';
+    }
+    .add::after {
+      position: absolute;
+      top: 20px;
+      left: 45px;
+      height: 60px;
+      content: '';
+      border-left: 10px solid;
+    }
+    .add:hover {
+      color: #06c;
+    }
+    a::after {
+      content: '\00A0\000BB';
+    }
+    .touming {
+      width: 300px;
+      height: 300px;
+      background-color: #000;
+      /* transparent 指的是透明 */
+      border-left: 60px solid transparent;
+    }
+    .k {
+      width: 100%;
+      background-color: pink;
+      height: 300px;
+    }
+    .triangle {
+      width: 100px;
+      height: 0px;
+      /* border-width: 30px;
+      border-style: solid; */
+      border-width: 30px 30px 0 30px;
+      border-style: solid;
+      border-color: pink transparent transparent transparent;
+    }
+    img {
+      /* position: relative; */
+      width: 32px;
+      height: 32px;
+      /* overflow: hidden; */
+      /* margin-left: -32px; */
+      /* border-right: 32px solid transparent; */
+      filter: drop-shadow(32px 0 pink);
+    }
+    .shadow {
+      width: 100px;
+      background-color: #ccc;
+    }
+    .warp {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+    }
+
+    .icon {
+      position: relative;
+      left: -32px;
+      border-right: 32px solid transparent;
+      filter: drop-shadow(32px 0 #00ff00);
+    }
+  </style>
+  <body>
+    <div class="touming">
+      <div class="k"></div>
+    </div>
+    <a href="#">知道更多</a>
+    <div class="box"></div>
+    <div class="add"></div>
+    <div class="triangle"></div>
+    <div drop-shadow class="shadow"><img src="./下一步.png" alt="" /></div>
+    <div class="warp"><img src="./下一步.png" alt="" class="icon" /></div>
+  </body>
+</html>

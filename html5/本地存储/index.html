@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function() {
+        var a = {
+          name: 'animye',
+          password: 1234
+        }
+        var str = JSON.stringify(a)
+        sessionStorage.用户名 = str
+        sessionStorage.loginname = 'animye'
+        sessionStorage.setItem('pasword', 24234242)
+        sessionStorage.setItem('pasword44', JSON.stringify(a))
+        console.log(sessionStorage.用户名)
+      }
+      //不能储存对象sessionStorage
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    #shiyan {
+      width: 300px;
+      font-size: 40px;
+      height: 40px;
+      transition: all 1s;
+    }
+    .biaodan {
+      resize: none;
+    }
+    table {
+      outline: none;
+      border: 1px solid #ccc;
+      background-color: pink;
+    }
+    table td {
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div>
+      <span>sdfsf</span>
+      <button>点击</button>
+      <p>dfsfsfsfsfs</p>
+    </div>
+    <form action="">
+      <input type="text" list="car" id="sousuo" />
+      <datalist id="car">
+        <option value="345"> </option>
+        <option value="ds5"> </option>
+        <option value="3d45sf"> </option>
+        <option value="3s4s5"> </option>
+      </datalist>
+      <details>
+        <summary>
+          sdff
+        </summary>
+        <ul>
+          <li>dsfsd</li>
+          <li>ssss</li>
+          <li>fffff</li>
+          <li>ssdd</li>
+          <li>ddddd</li>
+        </ul>
+      </details>
+      <textarea
+        name="biaodan"
+        id=""
+        cols="30"
+        rows="10"
+        spellcheck="true"
+      ></textarea>
+      <table
+        contenteditable="true"
+        width="600px"
+        height="200px"
+        cellspacing="0"
+        cellpadding="0"
+      >
+        <!-- tr表示行   td表示单元格 -->
+        <tr>
+          <td>数据已</td>
+          <td>shujue</td>
+        </tr>
+        <tr>
+          <td>数据已</td>
+          <td>shujue</td>
+        </tr>
+      </table>
+
+      <p id="shiyan" contenteditable="true">dsfsdfs</p>
+      <!-- contenteditable 变成true 视为可编辑 -->
+    </form>
+    <article>article标签，使用后感觉和P（段落）差不多，语义化的标签</article>
+    <aside>
+      标签定义其所处内容之外的内容。aside
+      标签定义article以外的内容（可用做文章的侧栏）. 语义化的标签
+    </aside>
+    <figure class="effect-julia">
+      <img
+        src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3580550742,2890987040&fm=26&gp=0.jpg"
+        width="200px"
+        height="50px"
+      />
+      <figcaption>
+        <!-- figcaption 元素应该被置于 “figure” 元素的第一个或最后一个子元素的位置。 -->
+        <h2>Passionate <span>Julia</span></h2>
+        <div>
+          <p>Julia dances in the deep dark</p>
+          <p>She loves the smell of the ocean</p>
+          <p>And dives into the morning light</p>
+        </div>
+        <a href="#">View more</a>
+      </figcaption>
+    </figure>
+    <script
+      src="http://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //消失出现
+      ;(function() {
+        var u = 0
+        //全局u=0
+        $('button').click(function() {
+          if (u === 0) {
+            u = 1
+            $('p')
+              .attr('hidden', true)
+              .css({
+                opacity: '0'
+              })
+              .hide()
+          } else {
+            u = 0
+            $('p')
+              .attr('hidden', false)
+              .css({
+                opacity: '1'
+              })
+              .show()
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>

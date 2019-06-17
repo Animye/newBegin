@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 590px;
+      height: 470px;
+      position: relative;
+    }
+    .box img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all 1s;
+    }
+    .box .one {
+      z-index: 1;
+      opacity: 1;
+    }
+    ul {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      margin-left: -100px;
+      width: 100%;
+      z-index: 2;
+    }
+    li {
+      cursor: pointer;
+      width: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      background-color: #000;
+      color: #fff;
+      list-style: none;
+      text-align: center;
+    }
+    button {
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 60px;
+      margin-top: -30px;
+      z-index: 2;
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      right: 0;
+    }
+    .two {
+      background-color: pink;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <img
+        class="one"
+        src="https://img11.360buyimg.com/babel/s590x470_jfs/t1/48056/24/1790/97814/5cf8dca1Ed2511ae3/50ecce277cf09870.jpg!q90!cc_590x470.webp"
+        alt=""
+      />
+      <img
+        src="https://img1.360buyimg.com/da/s590x470_jfs/t1/64373/10/1324/92377/5cf87e70E60bc8a60/ae70107540866f0f.jpg!q90!cc_590x470.webp"
+        alt=""
+      />
+      <img
+        src="https://img1.360buyimg.com/da/s590x470_jfs/t1/51633/23/1680/98010/5cf77cf0E5c2c00e8/2104549d1c898bbc.jpg!q90!cc_590x470.webp"
+        alt=""
+      />
+      <img
+        src="https://imgcps.jd.com/ling/4679172/576O6YWS55ub5a60/6aKG5Yi45ruhNDk55YePMTAw/t-5bd9558a6f64f11f63b35b61/63a25ddc.jpg"
+        alt=""
+      />
+      <img
+        src="https://img1.360buyimg.com/da/s590x470_jfs/t1/51935/11/1845/39956/5cf8c25cE6de3ac1a/baacd0c064829479.jpg!q90!cc_590x470.webp"
+        alt=""
+      />
+      <ul>
+        <li class="two">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+      <button class="left"><</button>
+      <button class="right">></button>
+    </div>
+    <script
+      src="http://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('li').click(function() {
+        let num = $(this).index()
+        ind = num
+        $(this)
+          .parent()
+          .siblings()
+          .eq(num)
+          .addClass('one ')
+          .siblings()
+          .removeClass('one ')
+        $(this)
+          .parent()
+          .children()
+          .eq(num)
+          .addClass('two ')
+          .siblings()
+          .removeClass('two ')
+      })
+      let ind = 0
+      let imgNum = $('img').length
+      $('.left').click(function() {
+        ind = ind - 1
+        if (ind < 0) {
+          ind = imgNum - 1
+        }
+        $(this)
+          .siblings('img')
+          .eq(ind)
+          .addClass('one')
+          .siblings()
+          .removeClass('one')
+        $(this)
+          .siblings('ul')
+          .children()
+          .eq(ind)
+          .addClass('two')
+          .siblings()
+          .removeClass('two')
+      })
+      $('.right').click(function() {
+        ind = ind + 1
+        if (ind > imgNum - 1) {
+          ind = 0
+        }
+        $(this)
+          .siblings('img')
+          .eq(ind)
+          .addClass('one')
+          .siblings()
+          .removeClass('one')
+        $(this)
+          .siblings('ul')
+          .children()
+          .eq(ind)
+          .addClass('two')
+          .siblings()
+          .removeClass('two')
+      })
+      let run = null
+      function auto() {
+        run = setInterval(() => {
+          ind = ind + 1
+          if (ind > imgNum - 1) {
+            ind = 0
+          }
+          $('img')
+            .eq(ind)
+            .addClass('one')
+            .siblings()
+            .removeClass('one')
+          $('li')
+            .eq(ind)
+            .addClass('two')
+            .siblings()
+            .removeClass('two')
+        }, 1000)
+      }
+      auto()
+      $('.box').mouseenter(function() {
+        clearInterval(run)
+      })
+      $('.box').mouseleave(function() {
+        auto()
+      })
+      // 设置每一个页面li的宽度
+      var slides = element.find('li')
+      console.log(slides)
+      $.each(slides, function(index) {
+        // 获取到每一个li元素
+        var slide = slides.eq(index)
+        // 设置每一个li的尺寸
+        slide.css({
+          width: width + 'px',
+          height: height + 'px'
+        })
+      })
+    </script>
+  </body>
+</html>
